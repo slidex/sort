@@ -1,27 +1,7 @@
 function log2(x) {
     return Math.log(x) / Math.log(2);
 }
-/*
-function level(index) {
-    return Math.floor(log2(index + 1)) + 1;
-}
 
-function depthToString(index) {
-    var str = '',
-        lev = level(index),
-        i;
-    
-    if (lev > 1) {
-        str += '|-';
-    }
-    if (lev > 2) {
-        for (i = 0; i < lev - 1; i++) {
-            str = '| ' + str;
-        }
-    }
-    return str;
-}
-*/
 function toString(array, index, depth) {
     var str = '',
         leftIndex,
@@ -53,6 +33,39 @@ function toString(array, index, depth) {
     return str;
 }
 
-var a = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
-console.log(toString(a));
+function add(array, value) {
+	var index,
+	    parentIndex,
+	    tmp;
+	
+	if (!array) {
+		return;
+	}
+	
+	array.push(value);
 
+	for (index = array.length - 1; ; ) {
+		if (index === 0) {
+			break;
+		}
+		parentIndex = (index - (index % 2 == 1 ? 1 : 2)) / 2;
+		if (array[index] > array[parentIndex]) {
+			tmp = array[index];
+			array[index] = array[parentIndex];
+			array[parentIndex] = tmp;
+		}
+		index = parentIndex;
+	}
+}
+
+var a = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
+//console.log(toString(a));
+
+var heap = [];
+add(heap, 0);
+add(heap, 1);
+add(heap, 2);
+add(heap, 3);
+add(heap, 4);
+add(heap, 5);
+console.log(toString(heap));
