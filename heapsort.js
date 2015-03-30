@@ -138,10 +138,10 @@ function testPop() {
 }
 
 function testPop2() {
-    var a = [ 16, 15, 14, 12, 10, 13, 11, 6, 1, 2, 8, 7, 3, 9, 4, 0, 5, 1 ];
-    console.log(toString(a))
-    pop(a, 17)
-    console.log(toString(a))
+    var a = [16, 15, 14, 12, 10, 13, 11, 6, 1, 2, 8, 7, 3, 9, 4, 0, 5, 1];
+    console.log(toString(a));
+    pop(a, 17);
+    console.log(toString(a));
 }
 
 function testHeapsort() {
