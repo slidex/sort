@@ -1,7 +1,3 @@
-function log2(x) {
-    return Math.log(x) / Math.log(2);
-}
-
 function toString(array, index, depth) {
     var str = '',
         leftIndex,
