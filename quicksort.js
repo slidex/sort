@@ -7,7 +7,7 @@ function swap(array, i1, i2) {
 function quicksort(array, fromIndex, toIndex) {
     var pivotIndex,
         pivotValue,
-        firstBiggerIndex,
+        lastLowerIndex,
         storeIndex,
         i;
         
@@ -22,16 +22,16 @@ function quicksort(array, fromIndex, toIndex) {
     pivotValue = array[pivotIndex];
     
     swap(array, pivotIndex, fromIndex);
-    firstBiggerIndex = fromIndex + 1;
+    lastLowerIndex = fromIndex + 1;
     
     for (i = fromIndex + 1; i <= toIndex; i++) {
         if (array[i] < pivotValue) {
-            swap(array, i, firstBiggerIndex);
-            firstBiggerIndex++;
+            swap(array, i, lastLowerIndex);
+            lastLowerIndex++;
         }
     }
     
-    storeIndex = firstBiggerIndex - 1;
+    storeIndex = lastLowerIndex - 1;
     swap(array, storeIndex, fromIndex);
     
     quicksort(array, fromIndex, storeIndex - 1);
